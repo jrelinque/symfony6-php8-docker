@@ -14,3 +14,24 @@ services:
       - '4306:3306'
     volumes:
       - ./mysql:/var/lib/mysql
+  php:
+    container_name: php
+    build:
+      context: ./php
+    ports:
+      - '9001:9000'
+    volumes:
+      - ./app:/var/www/symfony_docker
+    depends_on:
+      - database
+  nginx:
+    container_name: nginx
+    image: nginx:stable-alpine
+    ports:
+      - '8080:80'
+    volumes:
+      - ./app:/var/www/symfony_docker
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - database
