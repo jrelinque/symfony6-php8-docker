@@ -32,7 +32,10 @@ logs: ## Show logs from all containers
 	@docker-compose logs 
 
 shell-php: ## Log into the PHP container
-	@docker exec php /bin/bash
+	@docker-compose exec php /bin/bash
+
+shell-database: ## Log into the MySql database container
+	@docker-compose exec database /bin/bash
 
 ##########################################################
 ## Auto help command
