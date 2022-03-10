@@ -13,8 +13,7 @@ stop: ##Stop the containers
 
 
 build: ## Build environment
-	@CURRENT_UID=$(shell id -u):$(shell id -g) && \
-	docker-compose build
+	@docker-compose build
 
 down: ## Destroy the containers
 	@docker-compose down
@@ -24,7 +23,7 @@ restart: ## Stop the containers and start them again
 	docker-compose restart
 
 destroy: ## Stop and destroy the containers
-	@docker-compose down -v --rmi all
+	@docker-compose down -v --rmi all --remove-orphans
 
 ps: ## Show started containers
 	@docker-compose ps

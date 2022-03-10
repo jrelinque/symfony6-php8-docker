@@ -35,3 +35,13 @@ services:
     depends_on:
       - php
       - database
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:81"
+    depends_on:
+      - php
+      - database
+    links:
+      - database
