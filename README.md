@@ -20,12 +20,16 @@ But, first of all, you'll need:
     ps                             Show started containers
     restart                        Stop the containers and start them again
     shell-php                      Log into the PHP container
+    shell-database                 Log into the MySQL Database container
     up                             Builds (if the container didn't exist previously) the image and start the containers.
 
 Make it simple. The only things you have to execute is:
     
     jrelinque@ws-jrelinque: **make build**
     jrelinque@ws-jrelinque: **make up**
+
+In order to log into the Php container and create a new Symfony project you should do this:
+
     jrelinque@ws-jrelinque: make shell-php
     php: symfony new .
 
