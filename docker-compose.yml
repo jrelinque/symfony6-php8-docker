@@ -39,7 +39,7 @@ services:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
     ports:
-      - "8081:81"
+      - "8081:80"
     depends_on:
       - php
       - database
