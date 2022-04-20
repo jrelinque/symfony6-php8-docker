@@ -36,7 +36,6 @@ In order to log into the Php container and create a new Symfony project you shou
 Maybe you want to connect another git repository to your local installation through an App project. So you have to place into the docker folder and run:
 
     jrelinque@ws-jrelinque: cd app
-    jrelinque@ws-jrelinque: git init
-    jrelinque@ws.jrelinque: git clone <your-app-git-repo>
+    jrelinque@ws.jrelinque: git clone <your-app-git-repo> .
 
 info: jrelinque@emergya.com    
