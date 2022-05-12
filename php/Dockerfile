@@ -1,10 +1,10 @@
 FROM php:8.0.5-fpm-alpine
-
-RUN apk update 
+ENV TZ=Europe/Madrid
+RUN apk update
 
 RUN apk add --no-cache $PHPIZE_DEPS
 
-RUN apk add zlib-dev g++ git icu-dev zip libzip-dev zip bash\
+RUN apk add zlib-dev g++ git icu-dev zip libzip-dev zip bash yarn npm tzdata\
     && docker-php-ext-install intl opcache pdo pdo_mysql \
     && pecl install apcu \
     && pecl install xdebug \
@@ -14,7 +14,7 @@ RUN apk add zlib-dev g++ git icu-dev zip libzip-dev zip bash\
     && docker-php-ext-enable apcu \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
-
+ENV TZ=Europe/Madrid
 RUN apk update && \
     apk add --upgrade git
 
@@ -24,3 +24,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+
